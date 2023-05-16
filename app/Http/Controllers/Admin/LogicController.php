@@ -149,7 +149,7 @@ class LogicController extends Controller
         $t7 = Trader7::find($deposit->account_id);
 
         // do the deposit on the Trader7 account
-        $respTrans = $this->performTransaction($t7->currency, $t7->number, $deposit->amount, 'GDP-Admin', 'GDP-AUTO', 'deposit', 'balance');
+        $respTrans = $this->performTransaction($t7->currency, $t7->number, $deposit->amount, 'GDC-Admin', 'GDC-AUTO', 'deposit', 'balance');
 
         if($respTrans['status'] !== MobiusTrader::STATUS_OK) {
             return redirect()->back()->with('message', 'Sorry an error occured, report this to IT!');
@@ -193,7 +193,7 @@ class LogicController extends Controller
 
         // do the withdrawal from on the Trader7 account
         $t7 = Trader7::find($withdrawal->account_id);
-        $respTrans = $this->performTransaction($t7->currency, $t7->number, $withdrawal->amount, 'GDP-Admin', 'GDP-AUTO', 'withdrawal');
+        $respTrans = $this->performTransaction($t7->currency, $t7->number, $withdrawal->amount, 'GDC-Admin', 'GDC-AUTO', 'withdrawal');
 
         if($respTrans['status'] !== MobiusTrader::STATUS_OK) {
             return redirect()->back()->with('message', 'Sorry an error occured, report this to IT!');

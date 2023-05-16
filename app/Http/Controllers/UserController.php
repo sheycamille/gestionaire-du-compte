@@ -353,7 +353,7 @@ class UserController extends Controller
 
         $t7 = Trader7::find($t7_id);
 
-        $resp = $this->performTransaction($t7->currency, $t7->number, $amount, 'GDP-PayPal', 'GDP-AUTOPP-'.$request->orderid, 'deposit', 'balance');
+        $resp = $this->performTransaction($t7->currency, $t7->number, $amount, 'GDC-PayPal', 'GDC-AUTOPP-'.$request->orderid, 'deposit', 'balance');
         if(gettype($resp) !== 'integer') {
             return json_encode(['message' => 'Sorry an error occured, report this to support!']);
         } else {
@@ -1043,7 +1043,7 @@ class UserController extends Controller
 
         if ($resp->status == 'success') {
             $amt = $resp->data->amount;
-            $respTrans = $this->performTransaction($t7->currency, $t7->number, $amt, 'GDP-PayPound', 'GDP-AUTOPPD', 'deposit', 'balance');
+            $respTrans = $this->performTransaction($t7->currency, $t7->number, $amt, 'GDC-PayPound', 'GDC-AUTOPPD', 'deposit', 'balance');
             if($respTrans['status'] !== MobiusTrader::STATUS_OK) {
                 return redirect()->back()->with('message', 'Sorry an error occured, report this to support! ');
             } else {
@@ -1097,7 +1097,7 @@ class UserController extends Controller
 
         if ($data['status'] == 'success') {
             $amt = $dp->amount;
-            $respTrans = $this->performTransaction($t7->currency, $t7->number, $amt, 'GDP-PayPound', 'GDP-AUTOPPD', 'deposit', 'balance');
+            $respTrans = $this->performTransaction($t7->currency, $t7->number, $amt, 'GDC-PayPound', 'GDC-AUTOPPD', 'deposit', 'balance');
             if($respTrans['status'] !== MobiusTrader::STATUS_OK) {
                 return redirect()->back()->with('message', 'Sorry an error occured, report this to support!');
             } else {
@@ -1156,7 +1156,7 @@ class UserController extends Controller
 
         if ($resp->status == 'success') {
             $amt = $resp->data->amount;
-            $respTrans = $this->performTransaction($t7->currency, $t7->number, $amt, 'GDP-PayStudio', 'GDP-AUTOPS', 'deposit', 'balance');
+            $respTrans = $this->performTransaction($t7->currency, $t7->number, $amt, 'GDC-PayStudio', 'GDC-AUTOPS', 'deposit', 'balance');
             if($respTrans['status'] !== MobiusTrader::STATUS_OK) {
                 return redirect()->back()->with('message', 'Sorry an error occured, report this to support!');
             } else {
@@ -1210,7 +1210,7 @@ class UserController extends Controller
 
         if ($data['status'] == 'success') {
             $amt = $dp->amount;
-            $respTrans = $this->performTransaction($t7->currency, $t7->number, $amt, 'GDP-PayStudio', 'GDP-AUTOPS', 'deposit', 'balance');
+            $respTrans = $this->performTransaction($t7->currency, $t7->number, $amt, 'GDC-PayStudio', 'GDC-AUTOPS', 'deposit', 'balance');
             if($respTrans['status'] !== MobiusTrader::STATUS_OK) {
                 return redirect()->back()->with('message', 'Sorry an error occured, report this to support! ');
             } else {
@@ -1273,7 +1273,7 @@ class UserController extends Controller
 
         if ($resp->status == 'success') {
             $amt = $resp->data->amount;
-            $respTrans = $this->performTransaction($t7->currency, $t7->number, $amt, 'GDP-ChargeMoney', 'GDP-AUTOCM', 'deposit', 'balance');
+            $respTrans = $this->performTransaction($t7->currency, $t7->number, $amt, 'GDC-ChargeMoney', 'GDC-AUTOCM', 'deposit', 'balance');
             if($respTrans['status'] !== MobiusTrader::STATUS_OK) {
                 return redirect()->back()->with('message', 'Sorry an error occured, report this to support, we have received your payment! ');
             } else {
@@ -1345,7 +1345,7 @@ class UserController extends Controller
 
         if ($resp['status'] == 'C') {
             $amt = $resp['amount'];
-            $respTrans = $this->performTransaction($t7->currency, $t7->number, $amt, 'GDP-YWallit', 'GDP-AUTOYWP', 'deposit', 'balance');
+            $respTrans = $this->performTransaction($t7->currency, $t7->number, $amt, 'GDC-YWallit', 'GDC-AUTOYWP', 'deposit', 'balance');
             if($respTrans['status'] !== MobiusTrader::STATUS_OK) {
                 return redirect()->back()->with('message', 'Sorry an error occured, report this to support! ');
             } else {
@@ -1397,7 +1397,7 @@ class UserController extends Controller
 
         if ($data['status'] == 'C') {
             $amt = $dp->amount;
-            $respTrans = $this->performTransaction($t7->currency, $t7->number, $amt, 'GDP-YWallit', 'GDP-AUTOYWP', 'deposit', 'balance');
+            $respTrans = $this->performTransaction($t7->currency, $t7->number, $amt, 'GDC-YWallit', 'GDC-AUTOYWP', 'deposit', 'balance');
             if($respTrans['status'] !== MobiusTrader::STATUS_OK) {
                 return redirect()->back()->with('message', 'Sorry an error occured, report this to support! ');
             } else {
@@ -1467,7 +1467,7 @@ class UserController extends Controller
 
         if ($resp->responseCode == '0') {
             $amt = $resp->amount;
-            $respTrans = $this->performTransaction($t7->currency, $t7->number, $amt, 'GDP-VirtualPay', 'GDP-AUTOVP', 'deposit', 'balance');
+            $respTrans = $this->performTransaction($t7->currency, $t7->number, $amt, 'GDC-VirtualPay', 'GDC-AUTOVP', 'deposit', 'balance');
             if($respTrans['status'] !== MobiusTrader::STATUS_OK) {
                 return redirect()->back()->with('message', 'Sorry an error occured, report this to support! ');
             } else {
@@ -1521,7 +1521,7 @@ class UserController extends Controller
 
         if ($data['responseCode'] == '0') {
             $amt = $dp->amount;
-            $respTrans = $this->performTransaction($t7->currency, $t7->number, $amt, 'GDP-VirtualPay', 'GDP-AUTOVP', 'deposit', 'balance');
+            $respTrans = $this->performTransaction($t7->currency, $t7->number, $amt, 'GDC-VirtualPay', 'GDC-AUTOVP', 'deposit', 'balance');
             if($respTrans['status'] !== MobiusTrader::STATUS_OK) {
                 return redirect()->back()->with('message', 'Sorry an error occured, report this to support! ');
             } else {
@@ -1615,7 +1615,7 @@ class UserController extends Controller
                     $message_text = $tresponse->getMessages()[0]->getDescription() . ", Transaction ID: " . $tresponse->getTransId();
 
                     $amt = $data['amount'];
-                    $respTrans = $this->performTransaction($t7->currency, $t7->number, $amt, 'GDP-AuthorizeNet', 'GDP-AUTOAN', 'deposit', 'balance');
+                    $respTrans = $this->performTransaction($t7->currency, $t7->number, $amt, 'GDC-AuthorizeNet', 'GDC-AUTOAN', 'deposit', 'balance');
                     if($respTrans['status'] !== MobiusTrader::STATUS_OK) {
                         return redirect()->back()->with('message', 'Sorry an error occured, report this to support!');
                     } else {
@@ -1725,7 +1725,7 @@ class UserController extends Controller
 
         if($resp['data']['gatewayStatus'] == 'APPROVED') {
             $paymentId =$resp['data']['paymentId'];
-            $respT7 = $this->performTransaction($t7->currency, $t7->number, $amount, 'GDP-Cashonex', 'GDP-AUTOCO-'.$paymentId, 'deposit', 'balance');
+            $respT7 = $this->performTransaction($t7->currency, $t7->number, $amount, 'GDC-Cashonex', 'GDC-AUTOCO-'.$paymentId, 'deposit', 'balance');
 
             if(gettype($respT7) !== 'integer') {
                 return redirect()->back()->with('message', 'Sorry an error occured, report this to support!');
@@ -1797,7 +1797,7 @@ class UserController extends Controller
             } elseif ($request->status == 'APPROVED') {
                 $amount = $deposit->amount;
                 $paymentId =$request->paymentId;
-                $respT7 = $this->performTransaction($t7->currency, $t7->number, $amount, 'GDP-Cashonex', 'GDP-AUTOCO-'.$paymentId, 'deposit', 'balance');
+                $respT7 = $this->performTransaction($t7->currency, $t7->number, $amount, 'GDC-Cashonex', 'GDC-AUTOCO-'.$paymentId, 'deposit', 'balance');
 
                 if(gettype($respT7) !== 'integer') {
                     return redirect()->back()->with('message', 'Sorry an error occured, report this to support!');
@@ -1865,7 +1865,7 @@ class UserController extends Controller
 
         if($request->status == 'Success') {
             if($request->paid_amount) $amount = $request->paid_amount;
-            $respT7 = $this->performTransaction($t7->currency, $t7->number, $amount, 'GDP-NUMPAY', 'GDP-AUTONP-'.$paymentId, 'deposit', 'balance');
+            $respT7 = $this->performTransaction($t7->currency, $t7->number, $amount, 'GDC-NUMPAY', 'GDC-AUTONP-'.$paymentId, 'deposit', 'balance');
 
             if(gettype($respT7) !== 'integer') {
                 return redirect(route('account.liveaccounts'))->with('message', 'Sorry an error occured, report this to support!');
@@ -2005,7 +2005,7 @@ class UserController extends Controller
 
         if($resp['data']['gatewayStatus']=='APPROVED') {
             $paymentId =$resp['data']['paymentId'];
-            $respT7 = $this->performTransaction($t7->currency, $t7->number, $amount, 'GDP-Paycly', 'GDP-AUTOCO-'.$paymentId, 'deposit', 'balance');
+            $respT7 = $this->performTransaction($t7->currency, $t7->number, $amount, 'GDC-Paycly', 'GDC-AUTOCO-'.$paymentId, 'deposit', 'balance');
 
             if(gettype($respT7) !== 'integer') {
                 return redirect()->back()->with('message', 'Sorry an error occured, report this to support!');
@@ -2218,7 +2218,7 @@ class UserController extends Controller
 
             $t7 = Trader7::find($t7_id);
 
-            $resp = $this->performTransaction($t7->currency, $t7->number, $amount, 'GDP-Helcim', 'GDP-AUTOHELCIM-'.$data['transactionId'], 'deposit', 'balance');
+            $resp = $this->performTransaction($t7->currency, $t7->number, $amount, 'GDC-Helcim', 'GDC-AUTOHELCIM-'.$data['transactionId'], 'deposit', 'balance');
             if(gettype($resp) !== 'integer') {
                 return json_encode(['message' => 'Sorry an error occured, report this to support!']);
             } else {

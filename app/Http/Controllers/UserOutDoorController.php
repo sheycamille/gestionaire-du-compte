@@ -43,7 +43,7 @@ class UserOutDoorController extends Controller
         $msg = 'We are processing your payment, check back later. ' . $data['reason'];
 
         if(strtolower($data['type']) == 'sale' && $data['status'] == 'success' && $deposit->status == 'Pending') {
-            $respTrans = $this->performTransaction($data['order_currency'], $t7->number, $amount, 'GDP-Ragapay', 'GDP-AUTORP-'.$txn_id, 'deposit', 'balance');
+            $respTrans = $this->performTransaction($data['order_currency'], $t7->number, $amount, 'GDC-Ragapay', 'GDC-AUTORP-'.$txn_id, 'deposit', 'balance');
 
             if($respTrans['status'] !== MobiusTrader::STATUS_OK) {
                 $msg = 'Please contact support immediately, an unexpected error has occured but we got your funds.';
@@ -103,7 +103,7 @@ class UserOutDoorController extends Controller
 
         if ($data['status'] == 'success') {
             $amt = $dp->amount;
-            $respTrans = $this->performTransaction($t7->currency, $t7->number, $amt, 'GDP-ChargeMoney', 'GDP-AUTOCM', 'deposit', 'balance');
+            $respTrans = $this->performTransaction($t7->currency, $t7->number, $amt, 'GDC-ChargeMoney', 'GDC-AUTOCM', 'deposit', 'balance');
             if($respTrans['status'] !== MobiusTrader::STATUS_OK) {
                 return redirect()->back()->with('message', 'Sorry an error occured, report this to support! ');
             } else {
@@ -161,7 +161,7 @@ class UserOutDoorController extends Controller
             } elseif ($data['status'] == 'Success' || $data['status'] == 'Test') {
                 $amount = $data['amount'];
                 $paymentId =$data['transaction_id'];
-                $respTrans = $this->performTransaction($t7->currency, $t7->number, $amount, 'GDP-Paycly', 'GDP-AUTOPAYCLY-'.$paymentId, 'deposit', 'balance');
+                $respTrans = $this->performTransaction($t7->currency, $t7->number, $amount, 'GDC-Paycly', 'GDC-AUTOPAYCLY-'.$paymentId, 'deposit', 'balance');
 
                 if($respTrans['status'] !== MobiusTrader::STATUS_OK) {
                     return redirect()->back()->with('message', 'Sorry an error occured, report this to support!');
@@ -226,7 +226,7 @@ class UserOutDoorController extends Controller
         $msg = 'We are processing your payment, check back later. ' . $data['reason'];
 
         if(strtolower($data['type'] == 'sale' && $data['status']) == 'success' && $deposit->status == 'Pending') {
-            $respTrans = $this->performTransaction($data['order_currency'], $t7->number, $amount, 'GDP-Xpro', 'GDP-AUTOXPRO-'.$txn_id, 'deposit', 'balance');
+            $respTrans = $this->performTransaction($data['order_currency'], $t7->number, $amount, 'GDC-Xpro', 'GDC-AUTOXPRO-'.$txn_id, 'deposit', 'balance');
 
             if($respTrans['status'] !== MobiusTrader::STATUS_OK) {
                 $msg = 'Please contact support immediately, an unexpected error has occured but we got your funds.';

@@ -160,7 +160,7 @@ class T7Controller extends Controller
         $t7Acc = Trader7::where('id', $id)->first();
 
         // update the Trader7 demo server
-        $resp = $this->performTransaction($t7Acc->currency, $t7Acc->number, '10000.0', 'GDP-DEMO', 'GDP-AUTO', 'deposit', 'balance');
+        $resp = $this->performTransaction($t7Acc->currency, $t7Acc->number, '10000.0', 'GDC-DEMO', 'GDC-AUTO', 'deposit', 'balance');
 
         $msg = 'Your Trader7 Demo Account has been successfully topped up with $10k!';
         if(gettype($resp) !== 'integer') {

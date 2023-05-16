@@ -143,7 +143,7 @@ class CreateNewUser implements CreatesNewUsers
             'State' => $data['state'],
             'ZipCode' => $data['zip_code'],
             'Address' => $data['address'],
-            'Comment' => 'GDP-Creation',
+            'Comment' => 'GDC-Creation',
         );
         $resp = $m7->call('ClientCreate', $cdata);
 

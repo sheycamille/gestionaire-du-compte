@@ -392,13 +392,13 @@ class UsersController extends Controller
                 return redirect()->back()->with('message', 'Trader7 account not found');
 
             if ($request->type == "Bonus") {
-                $respTrans = $this->performTransaction($t7->currency, $t7->number, $amt, 'GDP-Admin', 'GDP-AUTO', 'deposit', 'bonus');
+                $respTrans = $this->performTransaction($t7->currency, $t7->number, $amt, 'GDC-Admin', 'GDC-AUTO', 'deposit', 'bonus');
                 $t7->bonus += $amt;
             } elseif ($request->type == "Credit") {
-                $respTrans = $this->performTransaction($t7->currency, $t7->number, $amt, 'GDP-Admin', 'GDP-AUTO', 'deposit', 'credit');
+                $respTrans = $this->performTransaction($t7->currency, $t7->number, $amt, 'GDC-Admin', 'GDC-AUTO', 'deposit', 'credit');
                 $t7->bonus += $amt;
             } elseif ($request->type == "Balance") {
-                $respTrans = $this->performTransaction($t7->currency, $t7->number, $amt, 'GDP-Admin', 'GDP-AUTO', 'deposit', 'balance');
+                $respTrans = $this->performTransaction($t7->currency, $t7->number, $amt, 'GDC-Admin', 'GDC-AUTO', 'deposit', 'balance');
                 $t7->balance += $amt;
             }
 
@@ -424,10 +424,10 @@ class UsersController extends Controller
                 return redirect()->back()->with('message', 'Trader7 account not found');
 
             if ($request->type == "Bonus") {
-                $respTrans = $this->performTransaction($t7->currency, $t7->number, $amt, 'GDP-Admin', 'GDP-AUTO', 'withdrawal', 'bonus');
+                $respTrans = $this->performTransaction($t7->currency, $t7->number, $amt, 'GDC-Admin', 'GDC-AUTO', 'withdrawal', 'bonus');
                 $t7->bonus -= $amt;
             } elseif ($request->type == "Balance") {
-                $respTrans = $this->performTransaction($t7->currency, $t7->number, $amt, 'GDP-Admin', 'GDP-AUTO', 'withdrawal', 'balance');
+                $respTrans = $this->performTransaction($t7->currency, $t7->number, $amt, 'GDC-Admin', 'GDC-AUTO', 'withdrawal', 'balance');
                 $t7->balance -= $amt;
             }
 
