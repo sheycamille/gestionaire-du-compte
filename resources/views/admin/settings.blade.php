@@ -49,7 +49,7 @@
 
                         <div class="row mb-5">
                             <div class="col p-3">
-                                @include('admin.includes.webinfo')
+                                @include('settings.webinfo')
                             </div>
                         </div>
                     </div>

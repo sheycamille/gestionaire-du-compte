@@ -4,3 +4,4 @@
 /public/storage
 .env
 .env.example
+.DS_Store

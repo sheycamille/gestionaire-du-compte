@@ -310,8 +310,8 @@ Route::group(['prefix' => 'dashboard',  'middleware' => ['auth', 'prevent-back-h
 
 
     // xpro payments
-    Route::any('success_xpro_charge', 'UserController@successRagapay')->name('successxprocharge');
-    Route::any('cancel_xpro_charge', 'UserController@cancelRagapay')->name('cancelxprocharge');
+    Route::any('success_xpro_charge', 'UserController@successXpro')->name('successxprocharge');
+    Route::any('cancel_xpro_charge', 'UserController@cancelXpro')->name('cancelxprocharge');
 
 
     // helcim payments
