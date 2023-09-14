@@ -76,12 +76,12 @@ class UserController extends Controller
 
 
     // profile route
-    public function profile()
+    public function accountsetting()
     {
         $countries = Country::orderBy('name')->whereStatus('active')->get();
         $userinfo = User::where('id', Auth::user()->id)->first();
 
-        return view('user.profile')->with(array(
+        return view('user.accountsetting')->with(array(
             'userinfo' => $userinfo,
             'title' => 'Profile',
             'countries' => $countries,
@@ -394,6 +394,7 @@ class UserController extends Controller
             'title' => 'Downloads',
         ]);
     }
+
 
 
     public function support(Request $request)

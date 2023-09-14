@@ -22,14 +22,14 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             // SendEmailVerificationNotification::class,
         ],
-        CheckAccounts::class => [
-            UpdateAccounts::class,
-        ],
+        // CheckAccounts::class => [
+        //     UpdateAccounts::class,
+        // ],
         Authenticated::class => [
             UpdateAccounts::class,
         ],
         Logout::class => [
-            UpdateAccounts::class,
+            // UpdateAccounts::class,
         ],
     ];
 

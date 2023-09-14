@@ -48,7 +48,7 @@ class CreateNewUser implements CreatesNewUsers
             'state' => ['required', 'string',],
             'zip_code' => ['required', 'string',],
             'country' => ['required', 'string',],
-            'g-recaptcha-response' => ['required', new ReCaptcha],
+            //'g-recaptcha-response' => ['required', new ReCaptcha],
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['required', 'accepted'] : '',
         ])->validate();
 
@@ -78,12 +78,12 @@ class CreateNewUser implements CreatesNewUsers
 
         // create the user on mobius server
         $data['ClientId'] = $user->id;
-        $mobiusResp = $this->createTrader($data);
+        // $mobiusResp = $this->createTrader($data);
 
-        if($mobiusResp['status'] === MobiusTrader::STATUS_OK) {
+        // if($mobiusResp['status'] === MobiusTrader::STATUS_OK) {
             // hash the password before updating the user
             $data['password'] = Hash::make($data['password']);
-            $data['account_number'] = $mobiusResp['data']['Id'];
+            // $data['account_number'] = $mobiusResp['data']['Id'];
 
             $user->update($data);
 
@@ -99,10 +99,10 @@ class CreateNewUser implements CreatesNewUsers
             $this->notifyUser($user);
 
             return $user;
-        } else {
-            $user->delete();
-            throw ValidationException::withMessages([$mobiusResp['message']]);
-        }
+        // } else {
+        //     $user->delete();
+        //     throw ValidationException::withMessages([$mobiusResp['message']]);
+        // }
     }
 
 

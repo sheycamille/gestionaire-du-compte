@@ -1391,6 +1391,18 @@ return [
     'desktop_apps' => 'Applications de bureau',
     'send_message' => 'Envoyez-nous un message',
     'our_supported_platforms' => 'Nos plateformes supportées',
+    'launch' => 'Lancer ',
+    '_webtd' => 'WebTrader',
+    'get_' => 'Obtenez-le sur  ',
+    '_google_play' => 'Google Play ',
+    'available_' => 'Disponible sur ',
+    '_app_store' => "l'App Store",
+    'Down_w' => 'Télécharger pour  ',
+    '_windows' => 'Windows',
+    'down_m' => 'Télécharger pour  ',
+    '_mac' => 'Mac',
+    'down_l' => 'Télécharger pour ',
+    '_linux' => 'Linux',
 
     'login' => [
         'lgn' => 'Connectez-vous à votre compte',

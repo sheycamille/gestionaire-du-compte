@@ -218,7 +218,8 @@ Route::group(['prefix' => 'dashboard',  'middleware' => ['auth', 'prevent-back-h
 
 
     // Upadating user profile info
-    Route::get('profile', 'UserController@profile')->name('account.profile');
+    //Route::get('profile', 'UserController@profile')->name('account.profile');
+    Route::get('account', 'UserController@accountsetting')->name('account.setting');
     Route::post('profileinfo', 'UserController@updateprofile')->name('userprofile');
     Route::post('updatepass', 'UserController@updatepass')->name('updatepass');
     Route::get('changepassword', 'UserController@changepassword')->name('changepassword');
@@ -251,6 +252,7 @@ Route::group(['prefix' => 'dashboard',  'middleware' => ['auth', 'prevent-back-h
     // Trader7 account mg't
     Route::get('demo-accounts', 'T7Controller@demoaccounts')->name('account.demoaccounts');
     Route::get('live-accounts', 'T7Controller@liveaccounts')->name('account.liveaccounts');
+    Route::get('trading-accounts', 'T7Controller@tradingaccounts')->name('tradingaccounts');
     Route::post('add-account', 'T7Controller@addt7account')->name('account.addt7account'); //->middleware(['throttle:1,30']);
     Route::get('t7-demo-deposit/{id}', 'T7Controller@demotopup')->name('account.demotopup');
     Route::post('reset-account-password/{id}', 'T7Controller@resett7password')->name('account.resett7password');

@@ -43,6 +43,12 @@ class T7Controller extends Controller
         ]);
     }
 
+    //serves trading accounts
+    public function tradingaccounts()
+    {
+        return view('user.tradingaccounts');
+    }
+
 
     // serves users live accounts
     public function liveaccounts()

@@ -31,6 +31,7 @@ class UpdateAccounts
      */
     public function handle($event)
     {
+        return
         $user = $event->user;
 
         // return for admins
